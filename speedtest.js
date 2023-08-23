@@ -319,7 +319,7 @@ Speedtest.prototype = {
    */
   start: function() {
     if (this._state == 3) throw "Test already running";
-    this.worker = new Worker("http://vaibhavgurap.github.io/speed-test/speedtest_worker.js?r=" + Math.random());
+    this.worker = new Worker("speed-test/speedtest_worker.js?r=" + Math.random());
     this.worker.onmessage = function(e) {
       if (e.data === this._prevData) return;
       else this._prevData = e.data;
